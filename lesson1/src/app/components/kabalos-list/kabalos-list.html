@@ -17,4 +17,6 @@
         </tr>
     </tbody>
 </table>
-<app-kabalos></app-kabalos>
+
+<button (click)="selectedIndex = -1">הוספת חדש</button>
+<app-kabalos [Kabala]="kabalaList[selectedIndex]"></app-kabalos>

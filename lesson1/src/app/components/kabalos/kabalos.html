@@ -1,22 +1,22 @@
 <div class="row">
   <div class="col">
     <label for="">שם:</label>
-    <input type="text" (change)="setEnabled()" [(ngModel)]="K.name">
+    <input type="text" (change)="setEnabled()" [(ngModel)]="Kabala.name">
   </div>
   <div class="col">
     <label for="">נושא:</label>
-    <select [(ngModel)]="K.subject">
+    <select [(ngModel)]="Kabala.subject">
       <option *ngFor="let c of subjectCode; let i = index" [value]="c" [label]="subjectDiscription[i]"></option>
     </select>
   </div>
   <div class="col">
     <label for="">תאור:</label>
-    <input *ngIf="K.name" type="text" [(ngModel)]="K.description">
+    <input *ngIf="Kabala.name" type="text" [(ngModel)]="Kabala.description">
   </div>
   <div class="col">
     <label for="">משקל:</label>
-    <input type="range" min="1" max="5" [(ngModel)]="K.weight">
+    <input type="range" min="1" max="5" [(ngModel)]="Kabala.weight">
   </div>
 </div>
 
-<button [disabled]="!enabledSave">שמירה</button>
+<button [disabled]="!isNew" (click)="addKabalaFunc()">הוספה</button>
