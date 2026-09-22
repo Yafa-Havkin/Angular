@@ -14,7 +14,25 @@ export class KabalosList {
     {id:13,name:'פתח צוואר',description:'לסגור את פתח הצוואר של החולצה הירוקה',subject: 2,weight: 5},
     {id:14,name:'לקראת שבת',description:'לקבל שבת 10 דקות לפני הזמן',subject: 4,weight: 3}
   ];
-
+  emptyKabala: Kabala = new Kabala();
   selectedIndex: number = 0;
+
+  get selectedKabala(): Kabala {
+    return this.kabalaList[this.selectedIndex] ?? this.emptyKabala;
+  }
+
+  set selectedKabala(k: Kabala) {
+    if (this.selectedIndex >= 0)
+      this.kabalaList[this.selectedIndex] = k;
+  }
+
+  savaNewKabala(K : Kabala){
+    this.kabalaList.push(K);
+  }
+
+  addNew() {
+    this.emptyKabala = new Kabala();
+    this.selectedIndex = -1;
+  }
 
 }

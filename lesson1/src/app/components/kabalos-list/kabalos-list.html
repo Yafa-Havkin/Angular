@@ -18,5 +18,5 @@
     </tbody>
 </table>
 
-<button (click)="selectedIndex = -1">הוספת חדש</button>
-<app-kabalos [Kabala]="kabalaList[selectedIndex]"></app-kabalos>
+<button (click)="addNew()">הוספת חדש✨</button>
+<app-kabalos (addKabala)="savaNewKabala($event)" [(Kabala)]="selectedKabala"></app-kabalos>
