@@ -57,3 +57,7 @@ button:disabled {
   background-color: #aaa;
   cursor: not-allowed;
 }
+
+.error-class{
+  border: 10px solid darkred !important;
+}

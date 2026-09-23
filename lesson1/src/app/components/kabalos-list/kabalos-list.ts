@@ -2,9 +2,10 @@ import { Component } from '@angular/core';
 import { Kabala } from '../../models/Kabala.model';
 import { Kabalos } from '../kabalos/kabalos';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
 @Component({
   selector: 'app-kabalos-list',
-  imports: [Kabalos,CommonModule],
+  imports: [Kabalos,CommonModule, ReactiveFormsModule],
   templateUrl: './kabalos-list.html',
   styleUrl: './kabalos-list.css',
 })

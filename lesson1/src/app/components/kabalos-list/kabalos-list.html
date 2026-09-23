@@ -1,6 +1,7 @@
 <table>
     <thead>
         <tr>
+            <th>קוד</th>
             <th>שם</th>
             <th>תאור</th>
             <th>נושא</th>
@@ -19,4 +20,4 @@
 </table>
 
 <button (click)="addNew()">הוספת חדש✨</button>
-<app-kabalos (addKabala)="savaNewKabala($event)" [(Kabala)]="selectedKabala"></app-kabalos>
+<app-kabalos (addKabala)="savaNewKabala($event)" (KabalaChange)="kabalaList[selectedIndex] = $event" [Kabala]="selectedKabala"></app-kabalos>
