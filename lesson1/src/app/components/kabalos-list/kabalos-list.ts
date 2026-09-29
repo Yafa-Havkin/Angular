@@ -3,7 +3,8 @@ import { Kabala } from '../../models/Kabala.model';
 import { Kabalos } from '../kabalos/kabalos';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
-import  { RouterOutlet } from '@angular/router';
+import  { ActivatedRoute, RouterOutlet, Router } from '@angular/router';
+import { KabalotService } from '../../services/Kabalot.service';
 @Component({
   selector: 'app-kabalos-list',
   imports: [Kabalos,CommonModule, ReactiveFormsModule, RouterOutlet],
@@ -11,14 +12,18 @@ import  { RouterOutlet } from '@angular/router';
   styleUrl: './kabalos-list.css',
 })
 export class KabalosList {
-  kabalaList : Kabala[] = [{id:11,name:'מחשבה טובה',description:'לחשוב משהו טוב על עצמי',subject: 1,weight: 2},
-    {id:12,name:'לשון הרע',description:'ללמוד 10 הלכות של לשון הרע',subject: 3,weight: 3},
-    {id:13,name:'פתח צוואר',description:'לסגור את פתח הצוואר של החולצה הירוקה',subject: 2,weight: 5},
-    {id:14,name:'לקראת שבת',description:'לקבל שבת 10 דקות לפני הזמן',subject: 4,weight: 3}
-  ];
+
+  constructor(private kabalotServise: KabalotService, private router: Router, private activatedRoute: ActivatedRoute){}
+
+  kabalaList: Kabala[] = [];
   emptyKabala: Kabala = new Kabala();
   selectedIndex: number = 0;
 
+  ngOnInit(){
+    this.kabalotServise.getKabalotList().subscribe(data => {
+      this.kabalaList = data;
+    })
+  }
   get selectedKabala(): Kabala {
     return this.kabalaList[this.selectedIndex] ?? this.emptyKabala;
   }
@@ -35,6 +40,11 @@ export class KabalosList {
   addNew() {
     this.emptyKabala = new Kabala();
     this.selectedIndex = -1;
+  }
+
+  selectedChanged(index: number){
+    this.selectedIndex = index;
+    this.router.navigate(['edit/'+this.kabalaList[index].id], {relativeTo: this.activatedRoute});
   }
 
 }

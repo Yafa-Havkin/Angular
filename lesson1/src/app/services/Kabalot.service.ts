@@ -6,7 +6,7 @@ import { Kabala } from '../models/Kabala.model';
 @Injectable({
   providedIn: 'root',
 })
-export class KabalotSRV {
+export class KabalotService {
 
   constructor(private httpClayent: HttpClient) {
    }
@@ -14,9 +14,12 @@ export class KabalotSRV {
   subjectCode: number[] = [1, 2, 3, 4, 5];
   subjectDiscription: string[] = ['Tefila', 'Tzniut', 'Shabbos', 'Tehilim', 'Midos'];
 
-  // getKabalotList(): Observable<Kabala[]>{
-  //   const kabalotList = this.httpClayent.get('src\app\kabalos-data.json');
-  //   return kabalotList;
-  // }
+   getKabalotList(): Observable<Kabala[]>{
+     return this.httpClayent.get<Kabala[]>('assets/kabalos-data.json');
+   }
+
+   getKabalaById(id: number): Observable<Kabala>{
+    return this.httpClayent.get<Kabala>('assets/kabalos-data.json?id='+id); 
+   }
   
 }

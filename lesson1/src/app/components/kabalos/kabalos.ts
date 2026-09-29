@@ -7,7 +7,9 @@ import {
   Validators,
 } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { KabalotSRV } from '../../services/KabalotSRV'
+import { KabalotService } from '../../services/Kabalot.service'
+import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
 @Component({
   selector: 'app-kabalos',
   imports: [CommonModule, ReactiveFormsModule],
@@ -15,6 +17,9 @@ import { KabalotSRV } from '../../services/KabalotSRV'
   styleUrl: './kabalos.css',
 })
 export class Kabalos {
+
+  constructor(private kabalotService:KabalotService, private activatedRoute: ActivatedRoute){}
+
   @Input()
   Kabala: Kabala = new Kabala();
   @Output()
@@ -31,7 +36,13 @@ export class Kabalos {
     weight: new FormControl(2),
   });
 
-  constructor(private kabalotSRV:KabalotSRV){}
+  ngOnInit(){
+    this.activatedRoute.params.subscribe(p => {
+      this.kabalotService.getKabalotList().subscribe(data => {
+        let k = data.find(k => k.id == p['id']);
+      })
+    });
+  }
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['Kabala'] && !changes['Kabala'].currentValue) {

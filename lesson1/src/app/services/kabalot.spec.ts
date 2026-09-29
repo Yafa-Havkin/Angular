@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { KabalotSRV } from './kabalotSRV'
+import { KabalotService } from './Kabalot.service'
 
 describe('Kabalot', () => {
-  let service: KabalotSRV;
+  let service: KabalotService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(KabalotSRV);
+    service = TestBed.inject(KabalotService);
   });
 
   it('should be created', () => {
