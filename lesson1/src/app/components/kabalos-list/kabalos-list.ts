@@ -3,9 +3,10 @@ import { Kabala } from '../../models/Kabala.model';
 import { Kabalos } from '../kabalos/kabalos';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
+import  { RouterOutlet } from '@angular/router';
 @Component({
   selector: 'app-kabalos-list',
-  imports: [Kabalos,CommonModule, ReactiveFormsModule],
+  imports: [Kabalos,CommonModule, ReactiveFormsModule, RouterOutlet],
   templateUrl: './kabalos-list.html',
   styleUrl: './kabalos-list.css',
 })

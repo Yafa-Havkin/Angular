@@ -1,0 +1,4 @@
+[{ "id": 11, "name": "קבלת שבת", "description": "לקבל שבת 10 דקות לפני הצפצוף", "subject": 1, "weight": 2 },
+    { "id": 12, "name": "חצאית קצרה", "description": "לזרוק חציאת קצרה מהארון", "subject": 2, "weight": 4 },
+    { "id": 13, "name": "כבוד שבת", "description": "להתלבש חגיגי בכל סעודות שבת", "subject": 1, "weight": 2 },
+    { "id": 14, "name": "פתח צוואר", "description": "לסגור את פתח הצוואר בשתי חולצות", "subject": 2, "weight": 4 }]

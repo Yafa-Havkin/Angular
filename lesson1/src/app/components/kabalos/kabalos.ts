@@ -7,7 +7,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-
+import { KabalotSRV } from '../../services/KabalotSRV'
 @Component({
   selector: 'app-kabalos',
   imports: [CommonModule, ReactiveFormsModule],
@@ -30,6 +30,8 @@ export class Kabalos {
     subject: new FormControl(''),
     weight: new FormControl(2),
   });
+
+  constructor(private kabalotSRV:KabalotSRV){}
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['Kabala'] && !changes['Kabala'].currentValue) {

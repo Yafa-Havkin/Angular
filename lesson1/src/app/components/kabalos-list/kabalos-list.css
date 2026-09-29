@@ -45,3 +45,10 @@ button {
 button:hover {
   background-color: #357abd;
 }
+
+.save-route{
+  border: solid 2px palevioletred;
+  width: 80%;
+  height: 80hw;
+  margin: auto;
+}

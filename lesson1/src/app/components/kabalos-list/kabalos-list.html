@@ -20,4 +20,8 @@
 </table>
 
 <button (click)="addNew()">הוספת חדש✨</button>
-<app-kabalos (addKabala)="savaNewKabala($event)" (KabalaChange)="kabalaList[selectedIndex] = $event" [Kabala]="selectedKabala"></app-kabalos>
+<!-- <app-kabalos (addKabala)="savaNewKabala($event)" (KabalaChange)="kabalaList[selectedIndex] = $event" [Kabala]="selectedKabala"></app-kabalos> -->
+<div class="row save-route">
+    <router-outlet></router-outlet>
+</div>
+
